@@ -1,5 +1,5 @@
 
-## TAILWINDCSS STARTER PROJECT
+## Teletype
 <hr>
 
 #### build style.css 
