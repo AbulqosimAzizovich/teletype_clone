@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- build css -->
+    <script src="https://cdn.tiny.cloud/1/akjiywwyhope7hjgist6qb558en1umq5ytfnmhvfrrvs86ee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Teletype/Edit</title>
+</head>
+<body>
+
+<!-- Header Start -->  
+    <header class="shadow-lg py-4 px-5 bg-[white]">
+        <nav class="flex h-[51px] items-center justify-between ">
+            <a href="./index.html" target="_blank"><img src="./assets/icons/logo1.svg" alt="Logo"></a>
+            <button class="px-3 py-2 bg-[#5B41F5] rounded-full text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500 "><i class='bx bx-up-arrow-alt text-3xl' ></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-[41px]">
+            <div class="max-w-[1240px] mx-auto px-5">
+                <h1 class="text-3xl text-indigo-500 text-center mb-5 uppercase font-bold">Create new post</h1>
+
+                <label for="title">
+                    <p class="font-semibold uppercase ms-3 text-indigo-500">Enter post title</p>
+                    <input type="text" id="title" placeholder="Enter post title" class="w-full px-3 py-2 border border-gray-300 my-4 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </label>
+                <textarea>
+                    
+                </textarea>
+
+            </div>
+        </section>
+    </main>
+</body>
+
+
+<div class="modal-wrapper w-screen h-screen grid place-content-center">
+    <div class="modal-content w-[500px] shadow-lg">
+        <div class="p-4">
+            <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Registration</h3>
+            <form action="#">
+                <input type="text" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter fullname">
+                <input type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
+                <input type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
+                <input type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Confirm your password">
+                <button class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Login</button>
+            </form>
+            <p class="text-center text-gray-500 mt-4">Don't have an account? <a href="#" class="text-indigo-500">Sign up</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+  </script>
+<script src="./scripts/utils.js"></script>
+<script src="./scripts/app.js"></script>
+
+
+
+</html>

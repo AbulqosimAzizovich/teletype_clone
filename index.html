@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- build css -->
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Teletype</title>
+</head>
+<body>
+
+<!-- Header Start -->  
+    <header class="shadow-lg py-4 px-5 bg-[white]">
+        <nav class="flex h-[51px] items-center justify-between ">
+            <a href="#"><img src="./assets/icons/logo1.svg" alt="Logo"></a>
+            <button class="px-3 py-2 bg-[#5B41F5] rounded-[7px] text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500 ">Join</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pt-[41px]">
+            <div class="max-w-[1240px] mx-auto px-5">
+                <div class="search__form flex justify-between mb-[31px] items-center">
+                    <input class="grow rounded-full text-[#949494] ps-6 py-2 me-4 max-w-full" type="text" placeholder="Search">
+                    <button type="submit" class="px-2 py-3 bg-[#5B41F5] text-white rounded-full font-semibold text-[13px] w-[146px] focus:bg-indigo-500 focus:ring-indigo-500 ">Search posts</button>
+                </div>
+    
+                <div class="post__wrapper">
+                    <div class="post__item shadow-md hover:shadow-xl duration-150 rounded--[16px] p-4 font-['inter']">
+                        <h2 class="post__tile text-center text-[28px] font-bold leading-[39px] mb-5">💥Frontend dasturchilari uchun Top-12 ta tekin API</h2>
+                        <p class="post__text mb-[25.5px]">
+                            Ushbu API'larni ishlatib korib siz dasturlashda asinxron, fake backend bilan ishlab 
+                            ozingizni tajribangizni oshirishingiz mumkin.
+                           
+                        </p>
+
+                        <p class="post__text mb-[25.5px]">
+                             Ozingiz API yaratib uni ishlatmoqchi bolsangiz sizga Mockapi.io, JSON Server, Strapi 
+                            lar yordam beroladi)
+                        </p>
+
+                        <strong class="mb-3">● Abdulloh Qiyomov</strong>
+                        <div class="flex items-center gap-x-3 my-4 text-[#949494] text-[14px]">
+                            <span>April 29, 09:33</span>
+                            <i class='bx bx-show'></i>
+                            <span>54</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="./scripts/utils.js"></script>
+<script src="./scripts/app.js"></script>
+</html>
