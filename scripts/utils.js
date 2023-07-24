@@ -45,3 +45,7 @@ function saveStorage(key, value) {
 function getStorage(key) {
   return localStorage.getItem(key);
 }
+
+
+export default {$, $$, createElement, saveStorage, getStorage, TO_JSON, TO_OBJECT};
+  
