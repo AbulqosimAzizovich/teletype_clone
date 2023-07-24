@@ -12,33 +12,36 @@
     <title>Teletype</title>
 </head>
 <body>
-    <div class="modal-wrapper w-screen h-screen grid place-content-center">
-    <ul class="flex mx-auto gap-x-2 w-[80%] mb-4">
-        <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">SIGN UP</button> </li>
-        <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">Sign in</button> </li>
-    </ul>
-    <div class="modal-content w-[500px] shadow-lg">
-        <div class="p-4 tab-item">
-            <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Registration</h3>
-            <form action="#">
-                <input type="text" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter fullname">
-                <input type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
-                <input type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
-                <input type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Confirm your password">
-                <button class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign Up</button>
-            </form>
-        </div>
+    <div class="modal-wrapper hidden absolute z-50 bg-white w-screen h-screen place-content-center">
+        <button id="closeModal" class="absolute right-8 top-5 bg-indigo-200 focus:bg-indigo-400">
+            <i class="bx bx-x text-2xl"></i>
+        </button>
+        <ul class="flex mx-auto gap-x-2 w-[80%] mb-4">
+            <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">SIGN UP</button> </li>
+            <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">Sign in</button> </li>
+        </ul>
+        <div class="modal-content w-[500px] shadow-lg">
+            <div class="p-4 tab-item">
+                <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Registration</h3>
+                <form action="#">
+                    <input id="full_name" type="text" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter fullname">
+                    <input id="user_name" type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
+                    <input id="password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
+                    <input id="confirm_password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Confirm your password">
+                    <button id="signup" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign Up</button>
+                </form>
+            </div>
 
-        <div class="p-4 tab-item">
-            <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Autorization</h3>
-            <form action="#">
-                <input type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
-                <input type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
-                <button class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign In</button>
-            </form>
+            <div class="p-4 tab-item">
+                <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Autorization</h3>
+                <form action="#">
+                    <input id="login_user" type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
+                    <input id="login_password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
+                    <button id="signin" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign In</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
 
@@ -48,7 +51,7 @@
     <header class="shadow-lg py-4 px-5 bg-[white]">
         <nav class="flex h-[51px] items-center justify-between ">
             <a href="#"><img src="./assets/icons/logo1.svg" alt="Logo"></a>
-            <button class="px-3 py-2 bg-[#5B41F5] rounded-[7px] text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500 ">Join</button>
+            <button id="openModal" class="px-3 py-2 bg-[#5B41F5] rounded-[7px] text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500 ">Join</button>
         </nav>
     </header>
 
