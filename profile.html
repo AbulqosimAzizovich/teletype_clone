@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tiny.cloud/1/akjiywwyhope7hjgist6qb558en1umq5ytfnmhvfrrvs86ee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- build css -->
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="./style.css">
+    <title id="user_title">User Profile</title>     
+
+    <style>
+        .active_tab{
+            background: #5f1aff88 !important;
+            color: #fff !important;
+        }
+    </style>
+</head>
+<!-- bg-[url('https://unsplash.com/photos/4hbJ-eymZ1o')] bg-no-repeat bg-cover -->
+<body>
+
+    <div class="bg-white fixed z-[999999] w-full h-[100vh] hidden" id="post_blur"></div>
+
+
+    <div class="w-full h-auto fixed top-[20%] right-[0%] z-[999999999] hidden" id="post_md">
+         <section class="pt-[41px] z-[999] relative">
+            <div class="max-w-[1240px] mx-auto px-5 bg-gray-600 p-5 shadow-lg">
+                <h1 class="text-3xl text-black text-center mb-5 uppercase font-bold">Create new post</h1>
+
+                <label for="title">
+                    <p class="font-semibold uppercase ms-3 text-black">Enter post title</p>
+                    <input type="text" id="title" placeholder="Enter post title" class="w-full px-3 py-2 border border-gray-300 my-4 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </label>
+                <textarea id="textarea">
+                    
+                </textarea>
+
+            </div>
+
+            <div class="max-w-[1240px] mx-auto mt-5 flex justify-between">
+                <button class="bg-gray-600 w-[150px] font-semibold text-white p-5 rounded-lg text-lg h-[65px] hover:ring-indigo-500 active:bg-gray-500 duration-150 hover:border-indigo-500 uppercase">Cancel</button>
+                <button class="bg-gray-600 w-[150px] font-semibold text-white p-5 rounded-lg text-lg h-[65px] hover:ring-indigo-500 active:bg-gray-500 duration-150 hover:border-indigo-500 uppercase">Send</button>
+            </div>
+
+            <div class="mx-auto ">
+                <button id="post_close" class="absolute rounded-lg w-[30px] h-[30px] bg-red-600 active:bg-red-400 z-[9999] top-[-128px] right-5 ">
+                    <i class="bx bx-x text-2xl text-white"></i>
+                </button>
+            </div>
+        </section>  
+    </div>
+
+    <header  class="h-[300px] bg-[url('https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHdlYiUyMGRldmVsb3BlcnxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=2000&q=60')] bg-no-repeat bg-cover">
+        <div class="container mx-auto relative flex justify-center h-[300px]">
+            <div class="flex w-[25%] p-5 rounded-2xl justify-center bg-[#ffffffc0] backdrop-blur-[1px] gap-x-6 items-center flex-col text-center absolute -bottom-14 z-40">
+                <img src="./assets/images/priscilla-du-preez-Wbyfby353Ag-unsplash.jpg" alt="unsplash" class="avatar border-4 border-cyan-500     w-[200px] h-[200px] rounded-[50%] object-cover">
+                <ul>
+                    <li>
+                        <h2 id="full_name" class="text-2xl text-indigo-600 font-medium font-['Inter']"><!--Content  --></h2>
+                    </li>
+                    <li id="user_name" class="text-xl text-gray-500"><!--Content  --></li>
+                </ul>
+            </div>
+
+            
+        </div>
+        <a href="./index.html" class="absolute top-4 left-5 z-[99999] text-xl font-semibold bg-white p-1 rounded-md flex items-center hover:bg-gray-200 mx-3"><i class='bx bx-chevron-left  text-[30px]'></i> Go to home</a>
+    </header>
+
+    <main>
+        <section class="pt-[41px]">
+            <div class="max-w-[1240px] mx-auto px-5 py-5 bg-gray-100 rounded-md mt-8">
+                <ul class="flex justify-center gap-x-6">
+                    <li class="tab__item p-4 hover:bg-gray-200  rounded-md cursor-pointer focus:bg-indigo-50 uppercase">Posts</li>
+                    <li class="tab__item p-4 hover:bg-gray-200  rounded-md cursor-pointer focus:bg-indigo-50 uppercase">Followers</li>
+                    <li class="tab__item p-4 hover:bg-gray-200  rounded-md cursor-pointer focus:bg-indigo-50 uppercase">Following</li>
+                </ul>
+                
+            </div>
+
+            <div class="max-w-[1240px] relative mx-auto px-5 py-5 bg-gray-200 rounded-md mt-8">
+                <ul>
+                    <li class="tab__content w-full border border-indigo-400 m-2">
+                        <div class="p-4 bg-gray-50"id="posts">
+                            <h1 class="uppercase"></h1>
+                        </div>
+                        <button id="add" class="absolute px-5 py-3 rounded-lg active:bg-indigo-500 bg-indigo-400 -bottom-14 right-5 text-lg font-semibold text-white">Add post</button>
+                    </li>
+                    <li class="tab__content w-full border border-indigo-400 m-2">
+                        <div class="p-4 bg-gray-50 "id="followers">
+                            <h1 class="uppercase"></h1>
+                            
+                        </div>
+                    </li>
+                    <li class="tab__content w-full border border-indigo-400 m-2">
+                        <div class="p-4 bg-gray-50 "id="followings">
+                            <h1 class="uppercase"></h1>
+                        </div>
+                    </li>
+                </ul>
+                
+            </div>
+        </section>
+    </main>
+</body>
+
+
+
+<!-- d -->
+ <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+  </script>
+
+<script type="module" src="./scripts/profiles.js"></script>
+
+
+</html>

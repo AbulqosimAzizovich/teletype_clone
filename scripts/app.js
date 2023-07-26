@@ -8,7 +8,6 @@ let { $$, $ } = utils;
 $$(".change-btn").forEach((btn, index) => {
   btn.addEventListener("click", () => {
     localStorage.setItem("tabNumber", index);
-    console.log(localStorage.getItem("tabNumber"));
     showContent(index);
   });
 });
@@ -61,8 +60,6 @@ $("#signup").addEventListener("click", (e) => {
       "border-green-500"
     );
 
-    console.log(signUpForm);
-
     signUp(signUpForm)
       .then((res) => res.json())
       .then((data) => console.log(data))
@@ -77,4 +74,95 @@ $("#signup").addEventListener("click", (e) => {
   }
 });
 
+$("#signin").addEventListener("click", (e) => {
+  e.preventDefault();
+  const signInForm = {
+    password: $("#login_password").value,
+    username: $("#login_user").value,
+  };
+
+  if (
+    signInForm.password.trim().length === 0 ||
+    signInForm.username.trim().length === 0
+  ) {
+    alert("Please enter your username or password");
+    $("#login_password").classList.add("border", "border-2", "border-red-500");
+    $("#login_user").classList.add("border", "border-2", "border-red-500");
+  } else {
+    signIn(signInForm)
+      .then((res) => res.json())
+      .then((result) => {
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("user", result.user.id);
+        localStorage.setItem("username", result?.user?.full_name);
+        window.location.href = "./profile.html";
+        if (result.statusCode == "400") {
+          $("#login_password").classList.add(
+            "border",
+            "border-2",
+            "border-red-500"
+          );
+          $("#login_user").classList.add(
+            "border",
+            "border-2",
+            "border-red-500"
+          );
+        } else {
+          $("#login_password").classList.add(
+            "border",
+            "border-2",
+            "border-green-500"
+          );
+          $("#login_user").classList.add(
+            "border",
+            "border-2",
+            "border-green-500"
+          );
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
+});
 // Authorization actions end
+
+function authCheck() {
+  if (localStorage.getItem("token")) {
+    $("#menu").classList.remove("hidden");
+    $("#openModal").classList.add("hidden");
+    $("#user_info").textContent = localStorage.getItem("username");
+  } else {
+    $("#menu").classList.add("hidden");
+    $("#dropdown").classList.add("hidden");
+    $("#openModal").classList.remove("hidden");
+  }
+}
+
+authCheck();
+
+$("#menu").addEventListener("click", () => {
+  $("#dropdown").classList.toggle("hidden");
+});
+
+$("#logout").addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+
+$("#add").addEventListener('click', () => {
+  $("#post_blur").classList.remove("hidden");
+  $("#post_md").classList.remove("hidden");
+});
+
+$("#post_blur").addEventListener("click", () => {
+  $("#post_blur").classList.add("hidden");
+  $("#post_md").classList.add("hidden");
+});
+
+$("#post_close").addEventListener('click', () => {
+  $("#post_blur").classList.add("hidden");
+  $("#post_md").classList.add("hidden");
+});
+
+

@@ -1,93 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.tiny.cloud/1/akjiywwyhope7hjgist6qb558en1umq5ytfnmhvfrrvs86ee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- build css -->
-    <link rel="stylesheet" href="./dist/output.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Teletype</title>
-</head>
-<body>
-    <div class="modal-wrapper hidden absolute z-50 bg-white w-screen h-screen place-content-center">
-        <button id="closeModal" class="absolute right-8 top-5 bg-indigo-200 focus:bg-indigo-400">
-            <i class="bx bx-x text-2xl"></i>
-        </button>
-        <ul class="flex mx-auto gap-x-2 w-[80%] mb-4">
-            <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">SIGN UP</button> </li>
-            <li class="grow"><button class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl">Sign in</button> </li>
-        </ul>
-        <div class="modal-content w-[500px] shadow-lg">
-            <div class="p-4 tab-item">
-                <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Registration</h3>
-                <form action="#">
-                    <input id="full_name" type="text" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter fullname">
-                    <input id="user_name" type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
-                    <input id="password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
-                    <input id="confirm_password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Confirm your password">
-                    <button id="signup" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign Up</button>
-                </form>
-            </div>
-
-            <div class="p-4 tab-item">
-                <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">Autorization</h3>
-                <form action="#">
-                    <input id="login_user" type="text" required maxlength="20" class="border rounded-lg mb-3 w-full p-3" placeholder="Enter @username">
-                    <input id="login_password" type="password" required class="border rounded-lg mb-3 w-full p-3" placeholder="Enter your password">
-                    <button id="signin" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Sign In</button>
-                </form>
-            </div>
+  </head>
+  <body>
+    <div
+      class="modal-wrapper hidden absolute  bg-white w-screen h-screen place-content-center"
+    >
+      <button
+        id="closeModal"
+        class="absolute right-8 top-5 bg-indigo-200 focus:bg-indigo-400"
+      >
+        <i class="bx bx-x text-2xl"></i>
+      </button>
+      <ul class="flex mx-auto gap-x-2 w-[80%] mb-4">
+        <li class="grow">
+          <button
+            class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl"
+          >
+            SIGN UP
+          </button>
+        </li>
+        <li class="grow">
+          <button
+            class="change-btn uppercase w-full bg-indigo-500 px-3 py-2 text-white font-semibold rounded-lg focus:bg-indigo-400 shadow-xl"
+          >
+            Sign in
+          </button>
+        </li>
+      </ul>
+      <div class="modal-content w-[500px] shadow-lg">
+        <div class="p-4 tab-item">
+          <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">
+            Registration
+          </h3>
+          <form action="#">
+            <input
+              id="full_name"
+              type="text"
+              required
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Enter fullname"
+            />
+            <input
+              id="user_name"
+              type="text"
+              required
+              maxlength="20"
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Enter @username"
+            />
+            <input
+              id="password"
+              type="password"
+              required
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Enter your password"
+            />
+            <input
+              id="confirm_password"
+              type="password"
+              required
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Confirm your password"
+            />
+            <button
+              id="signup"
+              class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+              Sign Up
+            </button>
+          </form>
         </div>
+
+        <div class="p-4 tab-item">
+          <h3 class="uppercase font-bold text-[20px] text-center mb-[20px]">
+            Autorization
+          </h3>
+          <form action="#">
+            <input
+              id="login_user"
+              type="text"
+              required
+              maxlength="20"
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Enter @username"
+            />
+            <input
+              id="login_password"
+              type="password"
+              required
+              class="border rounded-lg mb-3 w-full p-3"
+              placeholder="Enter your password"
+            />
+            <button
+              id="signin"
+              class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
 
 
+    <div class="bg-[rgba(255,255,255,0.23)] backdrop-blur-sm fixed z-50 w-full h-[100vh] hidden" id="post_blur"></div>
 
 
+    <div class="w-full h-auto fixed top-[20%] right-[0%] z-[99] hidden" id="post_md">
+         <section class="pt-[41px] z-[999] relative">
+            <div class="max-w-[1240px] mx-auto px-5 bg-gray-600 p-5 shadow-lg">
+                <h1 class="text-3xl text-black text-center mb-5 uppercase font-bold">Create new post</h1>
 
-<!-- Header Start -->  
+                <label for="title">
+                    <p class="font-semibold uppercase ms-3 text-black">Enter post title</p>
+                    <input type="text" id="title" placeholder="Enter post title" class="w-full px-3 py-2 border border-gray-300 my-4 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                </label>
+                <textarea id="textarea">
+                    
+                </textarea>
+
+            </div>
+
+            <div class="max-w-[1240px] mx-auto mt-5 flex justify-between">
+                <button class="bg-gray-600 w-[150px] font-semibold text-white p-5 rounded-lg text-lg h-[65px] hover:ring-indigo-500 active:bg-gray-500 duration-150 hover:border-indigo-500 uppercase">Cancel</button>
+                <button class="bg-gray-600 w-[150px] font-semibold text-white p-5 rounded-lg text-lg h-[65px] hover:ring-indigo-500 active:bg-gray-500 duration-150 hover:border-indigo-500 uppercase">Send</button>
+            </div>
+
+            <div class="mx-auto ">
+                <button id="post_close" class="absolute rounded-lg w-[30px] h-[30px] bg-red-600 active:bg-red-400 z-[9999] top-[-128px] right-5 ">
+                    <i class="bx bx-x text-2xl text-white"></i>
+                </button>
+            </div>
+        </section>  
+    </div>
+    <!-- Header Start -->
+
     <header class="shadow-lg py-4 px-5 bg-[white]">
-        <nav class="flex h-[51px] items-center justify-between ">
-            <a href="#"><img src="./assets/icons/logo1.svg" alt="Logo"></a>
-            <button id="openModal" class="px-3 py-2 bg-[#5B41F5] rounded-[7px] text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500 ">Join</button>
-        </nav>
+      <nav class="flex h-[51px] items-center justify-between relative">
+        <a href="#"><img src="./assets/icons/logo1.svg" alt="Logo" /></a>
+
+        <button class="menu hidden" id="menu">
+          <i class="bx bx-menu text-3xl"></i>
+        </button>
+
+        <ul
+          class="dropdown absolute right-1 top-[66px] shadow-lg border bg-white hidden"
+          id="dropdown"
+        >
+          <li class="border px-3 py-1">
+            <a
+              href="./profile.html"
+              class="text-gray-600 hover:text-indigo-500 flex items-center gap-x-1 w-full justify-between"
+            >
+              <strong id="user_info"></strong>
+              <i class="bx bx-user text-2xl"></i>
+            </a>
+          </li>
+          <li class="border px-3 py-1">
+            <a
+              href="#"
+              class="text-gray-600 hover:text-indigo-500 items-center flex gap-x-1 w-full justify-between"
+              id="add"
+            >
+              <strong>Add post</strong> <i class="bx bx-plus text-2xl"></i>
+            </a>
+          </li>
+          <li class="border px-3 py-1">
+            <button
+              class="text-gray-600 hover:text-indigo-500 items-center flex gap-x-1 w-full justify-between"
+              id="logout"
+            >
+              <strong>Log Out</strong> <i class="bx bx-power-off text-2xl"></i>
+            </button>
+          </li>
+        </ul>
+        <button
+          id="openModal"
+          class="px-3 py-2 bg-[#5B41F5] rounded-[7px] text-white text-[13px] font-semibold focus:bg-indigo-500 focus:ring-indigo-500"
+        >
+          Join
+        </button>
+      </nav>
     </header>
 
     <main>
-        <section class="pt-[41px]">
-            <div class="max-w-[1240px] mx-auto px-5">
-                <div class="search__form flex justify-between mb-[31px] items-center">
-                    <input class="grow rounded-full text-[#949494] ps-6 py-2 me-4 max-w-full" type="text" placeholder="Search">
-                    <button type="submit" class="px-2 py-3 bg-[#5B41F5] text-white rounded-full font-semibold text-[13px] w-[146px] focus:bg-indigo-500 focus:ring-indigo-500 ">Search posts</button>
-                </div>
-    
-                <div class="post__wrapper">
-                    <div class="post__item shadow-md hover:shadow-xl duration-150 rounded--[16px] p-4 font-['inter']">
-                        <h2 class="post__tile text-center text-[28px] font-bold leading-[39px] mb-5">💥Frontend dasturchilari uchun Top-12 ta tekin API</h2>
-                        <p class="post__text mb-[25.5px]">
-                            Ushbu API'larni ishlatib korib siz dasturlashda asinxron, fake backend bilan ishlab 
-                            ozingizni tajribangizni oshirishingiz mumkin.
-                           
-                        </p>
+      <section class="pt-[41px]">
+        <div class="max-w-[1240px] mx-auto px-5">
+          <div class="search__form flex justify-between mb-[31px] items-center">
+            <input
+              class="grow rounded-full text-[#949494] ps-6 py-2 me-4 max-w-full"
+              type="text"
+              placeholder="Search"
+            />
+            <button
+              type="submit"
+              class="px-2 py-3 bg-[#5B41F5] text-white rounded-full font-semibold text-[13px] w-[146px] focus:bg-indigo-500 focus:ring-indigo-500"
+            >
+              Search posts
+            </button>
+          </div>
 
-                        <p class="post__text mb-[25.5px]">
-                             Ozingiz API yaratib uni ishlatmoqchi bolsangiz sizga Mockapi.io, JSON Server, Strapi 
-                            lar yordam beroladi)
-                        </p>
+          <div class="post__wrapper">
+            <div
+              class="post__item shadow-md hover:shadow-xl duration-150 rounded--[16px] p-4 font-['inter']"
+            >
+              <h2
+                class="post__tile text-center text-[28px] font-bold leading-[39px] mb-5"
+              >
+                💥Frontend dasturchilari uchun Top-12 ta tekin API
+              </h2>
+              <p class="post__text mb-[25.5px]">
+                Ushbu API'larni ishlatib korib siz dasturlashda asinxron, fake
+                backend bilan ishlab ozingizni tajribangizni oshirishingiz
+                mumkin.
+              </p>
 
-                        <strong class="mb-3">● Abdulloh Qiyomov</strong>
-                        <div class="flex items-center gap-x-3 my-4 text-[#949494] text-[14px]">
-                            <span>April 29, 09:33</span>
-                            <i class='bx bx-show'></i>
-                            <span>54</span>
-                        </div>
-                    </div>
-                </div>
+              <p class="post__text mb-[25.5px]">
+                Ozingiz API yaratib uni ishlatmoqchi bolsangiz sizga Mockapi.io,
+                JSON Server, Strapi lar yordam beroladi)
+              </p>
+
+              <strong class="mb-3">● Abdulloh Qiyomov</strong>
+              <div
+                class="flex items-center gap-x-3 my-4 text-[#949494] text-[14px]"
+              >
+                <span>April 29, 09:33</span>
+                <i class="bx bx-show"></i>
+                <span>54</span>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
-<script type="module" src="./scripts/app.js"></script>
+  </body>
+
+  
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+      mergetags_list: [
+        { value: 'First.Name', title: 'First Name' },
+        { value: 'Email', title: 'Email' },
+      ]
+    });
+  </script>
+  <script type="module" src="./scripts/app.js"></script>
 </html>
