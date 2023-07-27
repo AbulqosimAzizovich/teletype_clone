@@ -166,3 +166,6 @@ $("#post_close").addEventListener('click', () => {
 });
 
 
+$("#post_send").addEventListener('click', () => {
+  console.log($("#title").value);
+})
