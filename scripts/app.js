@@ -155,6 +155,12 @@ $("#add").addEventListener('click', () => {
   $("#post_md").classList.remove("hidden");
 });
 
+$("#add_p").addEventListener("click", () => {
+  $("#post_blur").classList.remove("hidden");
+  $("#post_md").classList.remove("hidden");
+});
+
+
 $("#post_blur").addEventListener("click", () => {
   $("#post_blur").classList.add("hidden");
   $("#post_md").classList.add("hidden");
@@ -166,6 +172,33 @@ $("#post_close").addEventListener('click', () => {
 });
 
 
-$("#post_send").addEventListener('click', () => {
-  console.log($("#title").value);
-})
+function addPost() {
+  const newBlog = {
+    title: $("#title").value,
+    body: $("#textarea").value,
+    user_id: localStorage.getItem("user"),
+  };
+
+  if (newBlog.title.trim().length === 0 || newBlog.body.trim().length ===0) {
+    alert("Please enter a title and a body");
+  }else {
+    fetch("https://nest-blog-qdsa.onrender.com/api/blog", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(newBlog),
+    }) 
+    .then((res) => res.json())
+    .then((res) => console.log(res));
+        
+  }
+}
+
+
+$("#post_send").addEventListener("click", () => {
+  addPost();
+});
+
+

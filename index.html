@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tiny.cloud/1/akjiywwyhope7hjgist6qb558en1umq5ytfnmhvfrrvs86ee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/akjiywwyhope7hjgist6qb558en1umq5ytfnmhvfrrvs86ee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -116,7 +116,6 @@
       </div>
     </div>
 
-
     <div class="bg-[rgba(255,255,255,0.23)] backdrop-blur-sm fixed z-50 w-full h-[100vh] hidden" id="post_blur"></div>
 
 
@@ -129,7 +128,7 @@
                     <p class="font-semibold uppercase ms-3 text-black">Enter post title</p>
                     <input type="text" id="title" placeholder="Enter post title" class="w-full px-3 py-2 border border-gray-300 my-4 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                 </label>
-                <textarea id="textarea">
+                <textarea id="textarea" rows="15" cols="131" class="border-2 rounded-lg">
                     
                 </textarea>
 
@@ -140,7 +139,7 @@
                 <button class="bg-gray-600 w-[150px] font-semibold text-white p-5 rounded-lg text-lg h-[65px] hover:ring-indigo-500 active:bg-gray-500 duration-150 hover:border-indigo-500 uppercase" id="post_send">Send</button>
             </div>
 
-            <div class="mx-auto ">
+            <div class="mx-auto">
                 <button id="post_close" class="absolute rounded-lg w-[30px] h-[30px] bg-red-600 active:bg-red-400 z-[9999] top-[-128px] right-5 ">
                     <i class="bx bx-x text-2xl text-white"></i>
                 </button>
@@ -196,11 +195,11 @@
         </button>
       </nav>
     </header>
-
+    
     <main>
       <section class="pt-[41px]">
         <div class="max-w-[1240px] mx-auto px-5">
-          <div class="search__form flex justify-between mb-[31px] items-center">
+          <div class="search__form flex justify-between gap-1 mb-[31px] items-center">
             <input
               class="grow rounded-full text-[#949494] ps-6 py-2 me-4 max-w-full"
               type="text"
@@ -211,6 +210,11 @@
               class="px-2 py-3 bg-[#5B41F5] text-white rounded-full font-semibold text-[13px] w-[146px] focus:bg-indigo-500 focus:ring-indigo-500"
             >
               Search posts
+            </button>
+
+            <button id="add_p"
+              class="px-2 py-3 bg-[#850991] text-white rounded-full font-semibold text-[13px] w-[146px] focus:bg-purple-500 focus:ring-purple-500">
+              Add Post
             </button>
           </div>
 
@@ -250,9 +254,9 @@
   </body>
 
   
-  <script>
+  <!-- <script>
     tinymce.init({
-      selector: 'textarea',
+      selector: '#textarea',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
       tinycomments_mode: 'embedded',
@@ -262,6 +266,6 @@
         { value: 'Email', title: 'Email' },
       ]
     });
-  </script>
+  </script> -->
   <script type="module" src="./scripts/app.js"></script>
 </html>
