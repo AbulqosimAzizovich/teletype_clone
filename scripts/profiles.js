@@ -68,16 +68,45 @@ function listRender(state, selector) {
   console.log(selector);
 
   if (state.length) {
-    state?.forEach(() => {
+    state?.forEach((e) => {
       const card = document.createElement("div");
       card.classList.add("card");
-      card.innerHTML = `<img src="https://picsum.photos/id/211/300/300"><h1>Lorem </h1>`;
+      card.innerHTML = `
+        <div
+              class="post__item shadow-md hover:shadow-xl duration-150 rounded--[16px] p-4 font-['inter']"
+            >
+              <h2
+                class="post__tile text-center text-[28px] font-bold leading-[39px] mb-5"
+              >
+                ${e.title}
+              </h2>
+              <p class="post__text mb-[25.5px]">
+                ${e.body?.substring(0, 256) + '...'}
+              </p>
+
+              
+
+              <strong class="mb-3">● ${localStorage.getItem("username")}</strong>
+              <div
+                class="flex items-center gap-x-3 my-4 text-[#949494] text-[14px]"
+              >
+                <span>${e.createdAt.substring(0, 10)}</span>
+                <i class="bx bx-show"></i>
+                <span>${e.views}</span>
+              </div>
+            </div>
+      `;
       $("#" + selector).append(card);
     });
   } else {
     $("#" + selector).innerHTML = `<h1 class='text-center'>${selector.toUpperCase()} NOT FOUND</h1>`;
   };
 }
+
+// <p class="post__text mb-[25.5px]">
+//   Ozingiz API yaratib uni ishlatmoqchi bolsangiz sizga Mockapi.io, JSON Server,
+//   Strapi lar yordam beroladi)
+// </p>;
 
 $("#add").addEventListener("click", () => {
   $("#post_blur").classList.remove("hidden");
